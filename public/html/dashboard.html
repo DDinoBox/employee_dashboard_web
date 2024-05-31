@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dashboard</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark bd-navbar">
+        <a class="navbar-brand" href="#">
+            <img src="/img/codeconnect_w.png" alt="codeconnect" height="40" class="d-inline-block align-top">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <div class="row">
+                    <div class="col">
+                        <div class="dropdown">
+                            <button id="yearDropdownButton" class="btn btn-dark dropdown-toggle" type="button" id="populateYears" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                YYYY년
+                            </button>
+                            <div id="yearDropdownMenu" class="dropdown-menu" aria-labelledby="populateYears">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="dropdown">
+                            <button id="monthDropdownButton" class="btn btn-dark dropdown-toggle" type="button" id="populateMonths" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                MM월
+                            </button>
+                            <div id="monthDropdownMenu" class="dropdown-menu" aria-labelledby="populateMonths">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <button id="searchButton" class="btn btn-success ml-2">Search</button>
+                    </div>
+                </div>
+            </ul>
+        </div>
+    </nav>
+    <div class="container-fluid p-0">
+        <div class="d-flex flex-nowrap">
+            <div class="d-flex flex-column flex-shrink-0 pt-3 bg-dark text-white" style="width: 250px; min-height: 100vh;">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="dashboard.html">대시보드</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="employee_list.html">직원 명단</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="employee-turnover.html">입,퇴사자 명단</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="view_board.html">커뮤니티</a>
+                    </li>
+                </ul>
+                <br>
+            </div>
+            <div class="container-xl ms-n1">
+                <div id="loadingScreen" class="d-none justify-content-center align-items-center" style="height: 100vh;">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="sr-only">Loading...</span>
+                    </div>
+                </div>
+                <div class="container-xl ms-n1 mt-5">
+                    <h2 class="container text-center"> 인사 정보 대시보드 <i class="far fa-calendar-alt"></i> <span id="selectedYearAndMonth"></span></h2>
+                </div>
+                <div class="row mt-5">
+                    <div class="container text-center">
+                        <div class="row">
+                            <div class="col col-lg-2 px-1">
+                                <div class="p-2 bg-light border h-100 align-middle d-flex flex-column justify-content-center" style="height: 300px;">
+                                    <div class="font-weight-bold" style="font-size: 17px;">총 급여</div>
+                                    <div id="totalSalary" class="text-center"></div>
+                                </div>
+                            </div>
+                            <div class="col col-lg-2 px-1">
+                                <div class="p-2 bg-light border h-100 align-middle d-flex flex-column justify-content-center" style="height: 300px;">
+                                    <div class="font-weight-bold" style="font-size: 17px;">총 직원 수</div>
+                                    <div class="text-center">
+                                        <div id="totalEmployees" class="d-inline"></div>
+                                        <div class="d-inline">명</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div id="graphContainer" class="col col-lg-2 px-1">
+                                <div id="genderStats" class="p-2 bg-light border h-100"></div>
+                            </div>
+                            <div id="graphContainer" class="col-lg-6 px-1">
+                                <div id="departmentInfoTableContainer" class="p-2 bg-light border" style="height: 330px; width: 100%;">
+                                    <table id="departmentInfoTable" class="table small"></table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="graphContainer" class="row mt-2">
+                    <div class="col-lg-6 px-1">
+                        <div id="combinedGraphContainer" class="p-2 bg-light border" style="height: 400px; width: 100%;"></div>
+                    </div>
+                    <div class="col-lg-6 px-1">
+                        <div id="jobTurnoverGraphContainer" class="p-2 bg-light border" style="height: 400px; width: 100%;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="/js/dashboard.js"></script>
+</body>
+</html>

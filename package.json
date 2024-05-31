@@ -1,0 +1,17 @@
+{
+  "name": "employee_dashboard_web",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": "https://github.com/DDinoBox/employee_dashboard_web.git",
+  "author": "DDinoBox <dinobox.create@gmail.com>",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "nodemon": "^3.1.1",
+    "path": "^0.12.7"
+  }
+}

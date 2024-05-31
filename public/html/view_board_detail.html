@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시물 상세 보기</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand navbar-dark bg-dark bd-navbar">
+        <a class="navbar-brand" href="#">
+            <img src="/img/codeconnect_w.png" alt="codeconnect" height="40" class="d-inline-block align-top">
+        </a>
+    </nav>
+    <div class="container-fluid p-0">
+        <div class="d-flex flex-nowrap">
+            <div class="d-flex flex-column flex-shrink-0 pt-3 bg-dark text-white" style="width: 250px; min-height: 100vh;">
+                <ul class="nav nav-pills flex-column mb-auto">
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="dashboard.html">대시보드</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="employee_list.html">직원 명단</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-white" href="employee-turnover.html">입,퇴사자 명단</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="view_board.html">커뮤니티</a>
+                    </li>
+                </ul>
+                <br>
+            </div>
+            <div class="container">
+                <h2 class="my-4"></h2>
+                <div class="card custom-card-body">
+                    <div class="card-body">
+                        <h4 class="card-title" id="postTitle"></h4>
+                        <p class="card-text" id="postDetails" style="margin-block-end: 50px;"></p>
+                        <h6 class="card-subtitle mb-2 text-muted">댓글</h6>
+                        <ul class="list-group" id="commentsList"></ul>
+                        <div class="mt-3" id="commentSection">
+                            <p id="noCommentsMessage" style="display: none;">댓글이 없습니다.</p>
+                        </div>
+                        <a href="#" class="btn btn-primary mt-3" onclick="goBack()">뒤로 가기</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="/js/view_board_detail.js"></script>
+</body>
+</html>
